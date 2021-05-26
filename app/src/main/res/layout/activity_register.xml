@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/inputRegisterName"
+        android:layout_width="301dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="236dp"
+        android:layout_marginEnd="55dp"
+        android:hint="@string/name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/inputRegisterEmail"
+        android:layout_width="301dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="19dp"
+        android:hint="@string/email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputRegisterName" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/inputRegisterPassword"
+        android:layout_width="301dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="84dp"
+        android:hint="@string/password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputRegisterName" />
+
+    <Button
+        android:id="@+id/buttonRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:width="301dp"
+        android:text="@string/register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputRegisterPassword" />
+</androidx.constraintlayout.widget.ConstraintLayout>
