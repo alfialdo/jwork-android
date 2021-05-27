@@ -1,4 +1,4 @@
-package alfialdo.jwork_android;
+    package alfialdo.jwork_android;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -43,6 +43,8 @@ public class LoginActivity extends AppCompatActivity {
                             JSONObject jsonObject = new JSONObject(response);
                             if(jsonObject != null) {
                                 Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_LONG).show();
+                                Intent intent2 = new Intent(LoginActivity.this, MainActivity.class);
+                                startActivity(intent2);
                             }
                         } catch(JSONException e) {
                             Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_LONG).show();

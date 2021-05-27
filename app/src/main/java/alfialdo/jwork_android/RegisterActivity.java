@@ -37,7 +37,6 @@ public class RegisterActivity extends AppCompatActivity
                 String name = inputName.getText().toString();
                 String email = inputEmail.getText().toString();
                 String password = inputPassword.getText().toString();
-                System.out.println("Pass 1.1");
 
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
@@ -56,7 +55,6 @@ public class RegisterActivity extends AppCompatActivity
                 RegisterRequest registerRequest = new RegisterRequest(name, email, password, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
                 queue.add(registerRequest);
-                System.out.println("Pass 1.2");
             }
         });
     }
