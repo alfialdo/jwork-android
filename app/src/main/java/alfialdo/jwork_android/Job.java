@@ -1,6 +1,11 @@
 package alfialdo.jwork_android;
 
-public class Job
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.io.Serializable;
+
+public class Job implements Parcelable
 {
     private int id;
     private String name;
@@ -16,6 +21,44 @@ public class Job
         this.fee = fee;
         this.category = category;
     }
+
+    protected Job(Parcel in)
+    {
+        id = in.readInt();
+        name = in.readString();
+        fee = in.readInt();
+        category = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags)
+    {
+        dest.writeInt(id);
+        dest.writeString(name);
+        dest.writeInt(fee);
+        dest.writeString(category);
+    }
+
+    @Override
+    public int describeContents()
+    {
+        return 0;
+    }
+
+    public static final Creator<Job> CREATOR = new Creator<Job>()
+    {
+        @Override
+        public Job createFromParcel(Parcel in)
+        {
+            return new Job(in);
+        }
+
+        @Override
+        public Job[] newArray(int size)
+        {
+            return new Job[size];
+        }
+    };
 
     public int getId()
     {

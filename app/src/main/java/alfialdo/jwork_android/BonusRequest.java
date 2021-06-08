@@ -7,11 +7,12 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 
 
-public class MenuRequest extends StringRequest {
-    private static final String URL = "http://10.0.2.2:8080/job";
+public class BonusRequest extends StringRequest
+{
+    private static final String URL = "http://10.0.2.2:8080/bonus/";
 
-    public MenuRequest(Response.Listener<String> listener) {
-        super(Method.GET, URL, listener, new Response.ErrorListener() {
+    public BonusRequest(String referralCode, Response.Listener<String> listener) {
+        super(Method.GET, URL + referralCode, listener, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.d("ERROR", error.toString());

@@ -6,4 +6,19 @@
     <string name="email">email</string>
     <string name="password">password</string>
     <string name="register">REGISTER</string>
+    <string name="apply_now">Apply Now</string>
+    <string name="job_name">Job Name</string>
+    <string name="total_fee">Total Fee</string>
+    <string name="text_view">Text View</string>
+    <string name="textview">TextView</string>
+    <string name="button">Button</string>
+    <string name="job_category">Job Category</string>
+    <string name="payment_method">Payment Method</string>
+    <string name="job_fee">Job Fee</string>
+    <string name="bank">Bank</string>
+    <string name="referral_code">Referral Code</string>
+    <string name="code">Code</string>
+    <string name="e_wallet">E-Wallet</string>
+    <string name="count">COUNT</string>
+    <string name="apply_now2">APPLY NOW</string>
 </resources>
