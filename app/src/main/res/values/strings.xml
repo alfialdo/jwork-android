@@ -21,4 +21,14 @@
     <string name="e_wallet">E-Wallet</string>
     <string name="count">COUNT</string>
     <string name="apply_now2">APPLY NOW</string>
+    <string-array name="job_categories">
+        <item>Web Developer</item>
+        <item>Front End</item>
+        <item>Back End</item>
+        <item>UI</item>
+        <item>UX</item>
+        <item>Devops</item>
+        <item>Data Analyst</item>
+        <item>Data Scientist</item>
+    </string-array>
 </resources>

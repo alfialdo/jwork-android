@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:fillViewport="false"
-    tools:context=".activity.MainActivity">
+    tools:context=".activity.AdminPageActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout"
@@ -25,7 +25,6 @@
                 android:layout_height="match_parent">
 
                 <ScrollView
-                    android:id="@+id/scrollView2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fillViewport="true"
@@ -42,10 +41,9 @@
                         <ExpandableListView
                             android:id="@+id/expListView"
                             android:layout_width="match_parent"
-                            android:layout_height="597dp">
+                            android:layout_height="540dp">
 
                         </ExpandableListView>
-
 
 
                     </LinearLayout>
@@ -58,8 +56,8 @@
                     android:layout_height="58dp"
                     android:layout_margin="16dp"
                     android:layout_marginBottom="32dp"
-                    android:contentDescription=" "
-                    android:text="edit page"
+                    android:contentDescription="New Bonus"
+                    android:text="New Bonus"
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
@@ -73,14 +71,14 @@
                     android:layout_width="206dp"
                     android:layout_height="58dp"
                     android:layout_margin="16dp"
-                    android:layout_marginBottom="32dp"
+                    android:layout_marginBottom="16dp"
                     android:contentDescription="Applied Job"
-                    android:text="Applied Job"
+                    android:text="New Recruiter"
                     android:textAlignment="center"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     app:backgroundTint="#3F51B5"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/btnAddBonus"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.497"
                     app:layout_constraintStart_toStartOf="parent" />

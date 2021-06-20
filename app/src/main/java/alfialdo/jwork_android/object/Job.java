@@ -1,10 +1,13 @@
-package alfialdo.jwork_android;
+package alfialdo.jwork_android.object;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.io.Serializable;
-
+/**
+ * Class untuk membuat object Job yang akan menyimpan data sementara
+ * @author Muhammad Alfi A
+ * @version Final Project - 20 June 2021
+ */
 public class Job implements Parcelable
 {
     private int id;

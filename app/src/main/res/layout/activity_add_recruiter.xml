@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="false"
+    tools:context=".activity.AddRecruiterActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="411dp"
+            android:layout_height="730dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:id="@+id/etRecName"
+                    android:layout_width="347dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="28dp"
+                    android:ems="10"
+                    android:hint="Recruiter Name"
+                    android:inputType="textPersonName"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+                <EditText
+                    android:id="@+id/etRecEmail"
+                    android:layout_width="347dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="20dp"
+                    android:ems="10"
+                    android:hint="Recruiter Email"
+                    android:inputType="textPersonName"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etRecName" />
+
+                <EditText
+                    android:id="@+id/etRecPhoneNum"
+                    android:layout_width="347dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="20dp"
+                    android:ems="10"
+                    android:hint="Recruiter Phone Number"
+                    android:inputType="textPersonName"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etRecEmail" />
+
+                <EditText
+                    android:id="@+id/etRecProvince"
+                    android:layout_width="347dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="20dp"
+                    android:ems="10"
+                    android:hint="Recruiter Province"
+                    android:inputType="textPersonName"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etRecPhoneNum" />
+
+                <EditText
+                    android:id="@+id/etRecCity"
+                    android:layout_width="347dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="20dp"
+                    android:ems="10"
+                    android:hint="Recruiter City"
+                    android:inputType="textPersonName"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etRecProvince" />
+
+                <EditText
+                    android:id="@+id/etRecDesc"
+                    android:layout_width="347dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="20dp"
+                    android:ems="10"
+                    android:hint="Description"
+                    android:inputType="textPersonName"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etRecCity" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="215dp"
+                    android:layout_height="46dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="24dp"
+                    android:text="Add New Recruiter"
+                    android:textColor="#000000"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/btnAddRecruiter"
+                    android:layout_width="252dp"
+                    android:layout_height="62dp"
+                    android:layout_marginBottom="32dp"
+                    android:text="Add Recruiter"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.496"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

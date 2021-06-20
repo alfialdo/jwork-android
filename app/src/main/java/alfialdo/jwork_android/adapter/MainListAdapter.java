@@ -1,9 +1,8 @@
-package alfialdo.jwork_android;
+package alfialdo.jwork_android.adapter;
 
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -13,6 +12,15 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
+import alfialdo.jwork_android.object.Job;
+import alfialdo.jwork_android.R;
+import alfialdo.jwork_android.object.Recruiter;
+
+/**
+ * Acitivity untuk list adapter jobseeker main page
+ * @author Muhammad Alfi A
+ * @version Final Project - 20 June 2021
+ */
 public class MainListAdapter extends BaseExpandableListAdapter {
 
     private final Context context;
@@ -46,7 +54,7 @@ public class MainListAdapter extends BaseExpandableListAdapter {
         if (convertView == null) {
             LayoutInflater infalInflater = (LayoutInflater) this.context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = infalInflater.inflate(R.layout.layout_job, null);
+            convertView = infalInflater.inflate(R.layout.layout_sub_item, null);
         }
 
         TextView txtListChild = (TextView) convertView
@@ -84,7 +92,7 @@ public class MainListAdapter extends BaseExpandableListAdapter {
         if (convertView == null) {
             LayoutInflater infalInflater = (LayoutInflater) this.context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = infalInflater.inflate(R.layout.layout_recruiter, null);
+            convertView = infalInflater.inflate(R.layout.layout_group, null);
         }
 
         TextView lblListHeader = (TextView) convertView

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".activity.LoginActivity">
 
     <TextView
         android:id="@+id/textRegister"
@@ -35,7 +35,8 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputLoginEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/inputLoginEmail"
+        android:inputType="textPassword"/>
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/inputLoginEmail"

@@ -1,4 +1,4 @@
-package alfialdo.jwork_android;
+package alfialdo.jwork_android.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,6 +17,21 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
+import alfialdo.jwork_android.request.JobFetchRequest;
+import alfialdo.jwork_android.R;
+import alfialdo.jwork_android.request.JobCancelledRequest;
+import alfialdo.jwork_android.request.JobFinishedRequest;
+
+/**
+ * Acitivity untuk tampilan jobseeker melakukan cancel atau finish job
+ * @author Muhammad Alfi A
+ * @version Final Project - 20 June 2021
+ */
 public class FinishedJobActivity extends AppCompatActivity
 {
     private ResultListener listener;
@@ -39,7 +54,9 @@ public class FinishedJobActivity extends AppCompatActivity
         TextView tvJobFee = findViewById(R.id.jobFee);
         TextView tvTotalFee = findViewById(R.id.totalFee);
         tvInvoiceStatus.setVisibility(View.VISIBLE);
-
+        TextView tvStaticTotalFee = findViewById(R.id.staticTotalFee2);
+        tvTotalFee.setVisibility(View.INVISIBLE);
+        tvStaticTotalFee.setVisibility(View.INVISIBLE);
 
         Button btnCancelled = findViewById(R.id.btnCancelled);
         Button btnFinished = findViewById(R.id.btnFinished);
@@ -145,6 +162,9 @@ public class FinishedJobActivity extends AppCompatActivity
                         JSONObject jobseeker = invoice.getJSONObject("jobseeker");
                         JSONArray jobs = invoice.getJSONArray("jobs");
                         JSONObject job = jobs.getJSONObject(0);
+                        String isoDate = invoice.getString("date");
+                        Date date = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'.'SSSZZZZZ", Locale.US).parse(isoDate);
+                        String dateString = new SimpleDateFormat("dd.MM.yyyy", Locale.US).format(date);
 
                         if(invoice.getString("invoiceStatus").equals("Ongoing")) {
                             condition = false;
@@ -156,7 +176,7 @@ public class FinishedJobActivity extends AppCompatActivity
                                         invoice.getString("id"),
                                         invoice.getString("date"),
                                         invoice.getString("invoiceStatus"),
-                                        jobseeker.getString("name"),
+                                        dateString,
                                         paymentType,
                                         bonus.getString("referralCode"),
                                         job.getString("name"),
@@ -166,7 +186,7 @@ public class FinishedJobActivity extends AppCompatActivity
                             else {
                                 listener.onResult(
                                         invoice.getString("id"),
-                                        invoice.getString("date"),
+                                        dateString,
                                         invoice.getString("invoiceStatus"),
                                         jobseeker.getString("name"),
                                         paymentType,
@@ -185,13 +205,15 @@ public class FinishedJobActivity extends AppCompatActivity
                         i.putExtra("jobseekerId", jobseekerId);
                         Toast.makeText(FinishedJobActivity.this, "Try to Apply Job First", Toast.LENGTH_LONG).show();
                         startActivity(i);
+                        finish();
                     }
-                } catch (JSONException e) {
+                } catch (JSONException | ParseException e) {
                     Intent i = new Intent(FinishedJobActivity.this, MainActivity.class);
                     i.putExtra("jobseekerId", jobseekerId);
                     e.printStackTrace();
                     Toast.makeText(FinishedJobActivity.this, "No Applied Job", Toast.LENGTH_LONG).show();
                     startActivity(i);
+                    finish();
                 }
             }
         };

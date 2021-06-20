@@ -1,4 +1,4 @@
-package alfialdo.jwork_android;
+package alfialdo.jwork_android.request;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
@@ -8,10 +8,22 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Request untuk apply job
+ * @author Muhammad Alfi A
+ * @version Final Project - 20 June 2021
+ */
 public class ApplyJobRequest extends StringRequest
 {
     private final Map<String, String> params;
 
+    /**
+     * Method untuk apply job dengan payment type e-wallet payment
+     * @param jobId
+     * @param jobseekerId
+     * @param referralCode
+     * @param listener
+     */
     public ApplyJobRequest(int jobId,
                            int jobseekerId,
                            String referralCode,
@@ -25,6 +37,13 @@ public class ApplyJobRequest extends StringRequest
 
     }
 
+    /**
+     * Method untuk apply job dengan payment type bank payment
+     * @param jobId
+     * @param jobseekerId
+     * @param adminFee
+     * @param listener
+     */
     public ApplyJobRequest(int jobId,
                            int jobseekerId,
                            int adminFee,

@@ -1,4 +1,4 @@
-package alfialdo.jwork_android;
+package alfialdo.jwork_android.activity;
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,7 +9,6 @@ import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ExpandableListView;
-import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -19,10 +18,21 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import alfialdo.jwork_android.object.Job;
+import alfialdo.jwork_android.object.Location;
+import alfialdo.jwork_android.adapter.MainListAdapter;
+import alfialdo.jwork_android.R;
+import alfialdo.jwork_android.object.Recruiter;
+import alfialdo.jwork_android.request.MenuRequest;
+
+/**
+ * Acitivity untuk tampilan utama aplikasi jwork
+ * @author Muhammad Alfi A
+ * @version Final Project - 20 June 2021
+ */
 public class MainActivity extends AppCompatActivity
 {
     private final ArrayList<Recruiter> listRecruiter = new ArrayList<>();
@@ -40,9 +50,19 @@ public class MainActivity extends AppCompatActivity
 
         Intent i = getIntent();
         jobseekerId = i.getExtras().getInt("jobseekerId");
-        Button btnApplied = findViewById(R.id.btnApplied);
 
-        expandableListView = (ExpandableListView) findViewById(R.id.expLv);
+        Button btnApplied = findViewById(R.id.btnAddRecruiter);
+        Button btnEditPage = findViewById(R.id.btnAddBonus);
+
+        if(jobseekerId == 0) {
+            btnApplied.setVisibility(View.GONE);
+            btnEditPage.setVisibility(View.VISIBLE);
+        } else {
+            btnApplied.setVisibility(View.VISIBLE);
+            btnEditPage.setVisibility(View.GONE);
+        }
+
+        expandableListView = (ExpandableListView) findViewById(R.id.expListView);
         refreshList();
 
         expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener()
@@ -55,6 +75,9 @@ public class MainActivity extends AppCompatActivity
                 intent.putExtra("Job", (Parcelable) selectedJob);
                 intent.putExtra("jobseekerId", jobseekerId);
                 startActivity(intent);
+                if(jobseekerId == 0) {
+                    finish();
+                }
                 return false;
             }
         });
@@ -67,6 +90,18 @@ public class MainActivity extends AppCompatActivity
                 Intent i = new Intent(MainActivity.this, FinishedJobActivity.class);
                 i.putExtra("jobseekerId", jobseekerId);
                 startActivity(i);
+            }
+        });
+
+        btnEditPage.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent i = new Intent(MainActivity.this, AdminPageActivity.class);
+                i.putExtra("jobseekerId", jobseekerId);
+                startActivity(i);
+                finish();
             }
         });
     }

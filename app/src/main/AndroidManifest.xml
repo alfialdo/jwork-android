@@ -12,11 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Jworkandroid"
         android:usesCleartextTraffic="true">
-        <activity android:name=".FinishedJobActivity"></activity>
-        <activity android:name=".ApplyJobActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".activity.InfoPageActivity"></activity>
+        <activity android:name=".activity.AddBonusActivity" />
+        <activity android:name=".activity.AddRecruiterActivity" />
+        <activity android:name=".activity.AdminPageActivity" />
+        <activity android:name=".activity.AddJobActivity" />
+        <activity android:name=".activity.FinishedJobActivity" />
+        <activity android:name=".activity.ApplyJobActivity" />
+        <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.RegisterActivity" />
+        <activity android:name=".activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity">
+    tools:context=".activity.RegisterActivity">
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/inputRegisterName"
@@ -36,10 +36,11 @@
         android:hint="@string/password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputRegisterName" />
+        app:layout_constraintTop_toBottomOf="@+id/inputRegisterName"
+        android:inputType="textPassword"/>
 
     <Button
-        android:id="@+id/btnApplied"
+        android:id="@+id/btnAddRecruiter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -48,4 +49,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputRegisterPassword" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

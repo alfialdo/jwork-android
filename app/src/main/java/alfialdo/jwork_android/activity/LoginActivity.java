@@ -1,4 +1,4 @@
-    package alfialdo.jwork_android;
+    package alfialdo.jwork_android.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,6 +17,14 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import alfialdo.jwork_android.R;
+import alfialdo.jwork_android.request.LoginRequest;
+
+/**
+ * Acitivity untuk tampilan login aplikasi jwork
+ * @author Muhammad Alfi A
+ * @version Final Project - 20 June 2021
+ */
 public class LoginActivity extends AppCompatActivity {
 
     @Override

@@ -1,9 +1,10 @@
-package alfialdo.jwork_android;
+package alfialdo.jwork_android.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +19,18 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import alfialdo.jwork_android.object.Bonus;
+import alfialdo.jwork_android.request.ApplyJobRequest;
+import alfialdo.jwork_android.request.BonusRequest;
+import alfialdo.jwork_android.object.Job;
+import alfialdo.jwork_android.R;
+import alfialdo.jwork_android.request.DataRemoveRequest;
+
+/**
+ * Acitivity untuk tampilan jobseeker melakukan apply job
+ * @author Muhammad Alfi A
+ * @version Final Project - 20 June 2021
+ */
 public class ApplyJobActivity extends AppCompatActivity
 {
     private int jobseekerId;
@@ -42,11 +55,11 @@ public class ApplyJobActivity extends AppCompatActivity
         jobCategory = tempJob.getCategory();
         jobFee = tempJob.getFee();
 
-        Button btnApply = findViewById(R.id.btnApply);
-        btnApply.setVisibility(View.GONE);
+        Button btnApply = findViewById(R.id.btnExistingRecruiter);
         TextView staticReferralCode = findViewById(R.id.staticReferralCode);
-        staticReferralCode.setVisibility(View.INVISIBLE);
         EditText referralCode = findViewById(R.id.referral_code);
+        btnApply.setVisibility(View.GONE);
+        staticReferralCode.setVisibility(View.INVISIBLE);
         referralCode.setVisibility(View.INVISIBLE);
 
         TextView fieldJobName = findViewById(R.id.job_name);
@@ -60,6 +73,64 @@ public class ApplyJobActivity extends AppCompatActivity
 
         RadioGroup radioGroup = findViewById(R.id.radioGroup);
         Button btnCount = findViewById(R.id.btnCount);
+        Button btnRemoveJob = findViewById(R.id.btnRemoveJob);
+        TextView staticPayMethod = findViewById(R.id.staticPayMethod);
+        TextView staticTotalFee = findViewById(R.id.staticTotalFee);
+        TextView staticTitle = findViewById(R.id.pesanan);
+
+        if(jobseekerId == 0) {
+            radioGroup.setVisibility(View.GONE);
+            btnCount.setVisibility(View.GONE);
+            staticPayMethod.setVisibility(View.GONE);
+            staticReferralCode.setVisibility(View.GONE);
+            staticTotalFee.setVisibility(View.GONE);
+            referralCode.setVisibility(View.GONE);
+            fieldTotalFee.setVisibility(View.GONE);
+            staticTitle.setText("Job Information");
+            btnRemoveJob.setVisibility(View.VISIBLE);
+
+        } else {
+            radioGroup.setVisibility(View.VISIBLE);
+            btnCount.setVisibility(View.VISIBLE);
+            staticPayMethod.setVisibility(View.VISIBLE);
+            staticReferralCode.setVisibility(View.INVISIBLE);
+            staticTotalFee.setVisibility(View.VISIBLE);
+            referralCode.setVisibility(View.INVISIBLE);
+            fieldTotalFee.setVisibility(View.VISIBLE);
+            staticTitle.setText("Apply Now");
+            btnRemoveJob.setVisibility(View.GONE);
+        }
+
+        btnRemoveJob.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Response.Listener<String> responseListener = new Response.Listener<String>()
+                {
+                    @Override
+                    public void onResponse(String response) {
+                        if(response.equals("true")) {
+                            Toast.makeText(ApplyJobActivity.this, "Job has been Deleted!", Toast.LENGTH_LONG).show();
+                            Intent i = new Intent(ApplyJobActivity.this, MainActivity.class);
+                            i.putExtra("jobseekerId", jobseekerId);
+                            startActivity(i);
+                            finish();
+                        } else {
+                            Toast.makeText(ApplyJobActivity.this, "Failed to Delete Job", Toast.LENGTH_LONG).show();
+                        }
+
+                    }
+                };
+
+                DataRemoveRequest removeJob = new DataRemoveRequest(
+                        "job/",
+                        jobId,
+                        responseListener);
+                RequestQueue queue = Volley.newRequestQueue(ApplyJobActivity.this);
+                queue.add(removeJob);
+            }
+        });
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
         {
@@ -142,6 +213,10 @@ public class ApplyJobActivity extends AppCompatActivity
                             JSONObject jsonObject = new JSONObject(response);
                             if(jsonObject != null) {
                                 Toast.makeText(ApplyJobActivity.this, "Applied!", Toast.LENGTH_LONG).show();
+                                Intent i = new Intent(ApplyJobActivity.this, MainActivity.class);
+                                i.putExtra("jobseekerId", jobseekerId);
+                                startActivity(i);
+                                finish();
                             }
                         } catch(JSONException e) {
                             Toast.makeText(ApplyJobActivity.this, "Failed to Apply", Toast.LENGTH_LONG).show();
